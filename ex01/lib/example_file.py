@@ -10,7 +10,4 @@ def example_function(input_variable: float) -> float:
     Returns:
         The input times two.
     """
-    # START TODO #################
-    # return the input times two
-    raise NotImplementedError
-    # END TODO ###################
+    return 2* input_variable
