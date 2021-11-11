@@ -1,0 +1,35 @@
+steps to install vs-code (on linux without sudo)
+- download https://code.visualstudio.com/docs/?dv=linux64
+- you can probably skip the next steps if you installed via the package manager
+- copy to <path_to_bin_and_install>/install
+- extract `tar -xf code-stable-x64-1636111355.tar.gz`
+- make a bin directory next to install i.e. <path_to_bin_and_install>/bin: `mkdir bin`
+- cd bin
+- create softlink: `ln -s ../install/VSCode-linux-x64/bin/code vscode`
+- add to your bash to call vscode from everywhere: `export PATH="<path_to_bin_and_install>/bin:$PATH"`
+
+VSCode - remote
+- follow the steps in https://code.visualstudio.com/docs/remote/ssh
+- open it with vscode from any terminal
+- hit crtl p and paste `ext install ms-vscode-remote.vscode-remote-extensionpack`
+- click install
+- press f1 and click on add host
+- enter the ssh command that you used from your local machine before to connect to the pool
+- e.g. replace <username> with your username: ssh <username>@login.informatik.uni-freiburg.de
+- then enter password, press f1 again and connect to host, and voila, you're on the tf pool
+- click on open folder and enter the path to your project
+- `/project/cv-ws2122/<username>/cv-exercises/`
+- (in order to have the cv-exercises folder you need to do a `git clone https://github.com/lmb-freiburg/cv-exercises.git`)
+
+- VSCode Shortcuts:
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+	- open terminal: ctrl j
+	- open settings: ctrl ,
+	- open command palette: ctrl shift p
+	- set python interpreter of your conda environment: 
+		ctrl shift p 
+		python select interpreter
+		choose path to your conda environment
+		complaints about not knowing numpy will be gone
