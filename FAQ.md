@@ -34,6 +34,16 @@ fi
   - change this directory in all python scripts
   - [see stackoverflow](https://stackoverflow.com/questions/52628270/is-there-any-way-i-can-download-the-pre-trained-models-available-in-pytorch-to-a)
 
+### use shared conda environment
+- your conda installation takes up a lot of space. In our case >5GB, which might exceed your storage quota.
+- We share our environment `cvenv` which is sufficient to run the example solutions
+- **Steps to use shared conda environment**
+- edit your `~/.condarc` and add the following lines:
+```envs_dirs:
+  - /project/cv-ws2122/shared-data1/miniconda3/envs
+```
+- activate our environment: `conda activate cvenv`
+- check if the output of  `which python` equals `/project/cv-ws2122/shared-data1/miniconda3/envs/cvenv/bin/python`
 
 ## Additional Material
 ### Batch Norm
