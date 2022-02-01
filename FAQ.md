@@ -45,7 +45,37 @@ fi
 - activate our environment: `conda activate cvenv`
 - check if the output of  `which python` equals `/project/cv-ws2122/shared-data1/miniconda3/envs/cvenv/bin/python`
 
+### Remote SSH in vscode directly to a pool machine
+Instead of connecting vscode to the login node via ssh and then connect in the terminal to one of the pool machines, one can directly connect via ssh to a pool machine as follows:
+- Crtl+shift+p: then Remote-SSH: Open SSH Configuration File and choose your loca config file.
+- Usually you will see an entry for every server like:
+```
+Host login.informatik.uni-freiburg.de
+  HostName login.informatik.uni-freiburg.de
+  User username
+```
+Since the pool machines are only accessible after connecting to login, you can add one more entry for a pool machine as follows:
+```
+Host tfpool21
+  HostName tfpool21
+  ProxyJump login.informatik.uni-freiburg.de
+  User username
+```
+Then, when you select tfpool21, it will first connect to login and then to tfpool21, hence will ask for the password twice.
+
+This is required when running jupyter notebook that requires libraries that are not installed on the login node (exercise 07).
+
+### Tensorboard visualization in vscode
+To run tensorboard, you run the command from the terminal:
+
+`tensorboard --logdir path`
+
+This will show a link and probably a window will pop-up with 'open-in-local-browser'
+
+if it does not pop up: hover over link in cmd and click on 'follow link using forwarded port'
+
 ## Additional Material
 ### Batch Norm
 - nice explanation of intuition and parameters
 - [batchnorm-towardsdatascience](https://towardsdatascience.com/batch-norm-explained-visually-how-it-works-and-why-neural-networks-need-it-b18919692739)
+

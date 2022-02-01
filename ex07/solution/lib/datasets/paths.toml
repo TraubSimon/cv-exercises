@@ -1,0 +1,11 @@
+[FlyingThings3D]
+    [FlyingThings3D.train]
+        root = '/project/cv-ws2122/shared-data1/FlyingThings3D/TRAIN'
+    [FlyingThings3D.test]
+        root = '/project/cv-ws2122/shared-data1/FlyingThings3D/TEST'
+
+[Sintel]
+    root = '/project/cv-ws2122/shared-data1/Sintel/data/training'
+
+[FlyingChairs]
+    root = '/project/cv-ws2122/shared-data1/FlyingChairs/data'

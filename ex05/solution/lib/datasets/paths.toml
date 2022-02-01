@@ -1,0 +1,15 @@
+[FlyingThings3D]
+    [FlyingThings3D.train]
+        lists = '/project/cv-ws2122/shared-data1/FlyingThings3D/sample_lists'
+        root = '/project/cv-ws2122/shared-data1/FlyingThings3D/TRAIN'
+    [FlyingThings3D.test]
+        lists = '/project/cv-ws2122/shared-data1/FlyingThings3D/sample_lists'
+        root = '/project/cv-ws2122/shared-data1/FlyingThings3D/TEST'
+
+[Sintel]
+    lists = '/project/cv-ws2122/shared-data1/Sintel/sample_lists'
+    root = '/project/cv-ws2122/shared-data1/Sintel/data/training'
+
+[FlyingChairs]
+    lists = '/project/cv-ws2122/shared-data1/FlyingChairs/sample_lists'
+    root = '/project/cv-ws2122/shared-data1/FlyingChairs/data'
