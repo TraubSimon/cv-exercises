@@ -15,6 +15,12 @@ if [ -f ~/.bashrc ]; then
 fi
 ```
 
+### Access data options
+- work on pool pcs
+- copy to local via vscode (right click -> download)
+- scp
+- mout the shared-data1 directory on your local machine using sshfs
+
 ### Access denied / Password issues
 - Problem: login at [NextCloud](https://nc.informatik.uni-freiburg.de/index.php/apps/rainloop/) works but not when using ssh
 - Solution: do not use Umlauts (äöüß etc) in you password. Different encodings in the browser (setting the password) and terminal lead to different hashes
@@ -44,6 +50,43 @@ fi
 ```
 - activate our environment: `conda activate cvenv`
 - check if the output of  `which python` equals `/project/cv-ws2122/shared-data1/miniconda3/envs/cvenv/bin/python`
+
+### Recommended: vscode - IDE for working on pool machines
+#### steps to install vs-code (on linux without sudo)
+- download https://code.visualstudio.com/docs/?dv=linux64
+- you can probably skip the next steps if you installed via the package manager
+- copy to <path_to_bin_and_install>/install
+- extract `tar -xf code-stable-x64-1636111355.tar.gz`
+- make a bin directory next to install i.e. <path_to_bin_and_install>/bin: `mkdir bin`
+- cd bin
+- create softlink: `ln -s ../install/VSCode-linux-x64/bin/code vscode`
+- add to your bash to call vscode from everywhere: `export PATH="<path_to_bin_and_install>/bin:$PATH"`
+
+#### VSCode - remote
+- follow the steps in https://code.visualstudio.com/docs/remote/ssh
+- open it with vscode from any terminal
+- hit crtl p and paste `ext install ms-vscode-remote.vscode-remote-extensionpack`
+- click install
+- press f1 and click on add host
+- enter the ssh command that you used from your local machine before to connect to the pool
+- e.g. replace <username> with your username: ssh <username>@login.informatik.uni-freiburg.de
+- then enter password, press f1 again and connect to host, and voila, you're on the tf pool
+- click on open folder and enter the path to your project
+- `/project/cv-ws2122/<username>/cv-exercises/`
+- (in order to have the cv-exercises folder you need to do a `git clone https://github.com/lmb-freiburg/cv-exercises.git`)
+
+#### VSCode Shortcuts:
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+	- https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+	- open terminal: ctrl j
+	- open settings: ctrl ,
+	- open command palette: ctrl shift p
+	- set python interpreter of your conda environment: 
+		ctrl shift p 
+		python select interpreter
+		choose path to your conda environment
+		complaints about not knowing numpy will be gone
 
 ### Remote SSH in vscode directly to a pool machine
 Instead of connecting vscode to the login node via ssh and then connect in the terminal to one of the pool machines, one can directly connect via ssh to a pool machine as follows:
